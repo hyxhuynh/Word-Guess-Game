@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
-    <script src="assets/javascript/game.js"></script>
+   
 </head>
 <body>
     <div class="container">
@@ -32,14 +32,26 @@
         <div class="column second">
             <div class="game-instruction">
                 <p>Press any key to get started!</p>
+                
                 <p>Wins</p>
+                <p  id="winsHTML"></p>
+                
+                <p>Losses</p>
+                <p  id="lossesHTML"></p>
+                
                 <p>Current Word</p>
-                <p># Guesses Remaining</p>
+                <p id="displayUnderscoresHTML"></p>
+
+                <p>Number of Guesses Remaining</p>
+                <p  id="guessesRemainingHTML"></p>
+
                 <p>Letter Already Guessed</p>
+                <p  id="guessedLettersHTML"></p>
             </div>
         </div>
     </div>
     
+    <script src="assets/javascript/game.js"></script>
     
 </body>
 </html>

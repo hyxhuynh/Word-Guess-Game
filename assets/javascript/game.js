@@ -3,62 +3,62 @@ var mainInfo = [
     {
         singer: "Mariah Carey",
         song: "Vision of Love",
-        image: "../images/Mariah Carey",
+        image: "assets/images/Mariah_Carey.jpeg",
     },
     {
         singer: "U2 ",
         song: "One",
-        image: "../images/U2",
+        image: "assets/images/U2.jpg",
     },
     {
         singer: "Backstreet Boys",
         song: "I Want It That Way",
-        image: "../images/Backstreet Boys",
+        image: "assets/images/Backstreet_Boys.jpg",
     },
     {
         singer: "Whitney Houston",
         song: "I Will Always Love You",
-        image: "../images/Whitney Houston",
+        image: "assets/images/Whitney_Houston.jpg",
     },
     {
         singer: "Madonna",
         song: "Vogue",
-        image: "../images/Madonna",
+        image: "assets/images/Madonna.jpg",
     },
     {
         singer: "Britney Spears",
         song: "Baby One More Time",
-        image: "../images/Britney Spears",
+        image: "assets/images/Britney_Spears.jpg",
     },
     {
         singer: "TLC",
         song: "Waterfalls",
-        image: "../images/TLC",
+        image: "assets/images/TLC.jpg",
     },
     {
         singer: "R.E.M.",
         song: "Losing My Religion",
-        image: "../images/REM",
+        image: "assets/images/REM.jpg",
     },
     {
         singer: "Destiny's Child",
         song: "Say My Name",
-        image: "../images/Destiny's Child",
+        image: "assets/images/Destiny's_Child.jpg",
     },
     {
         singer: "Celine Dion",
         song: "My Heart Will Go On",
-        image: "../images/Celine Dion",
+        image: "assets/images/Celine_Dion.png",
     },
     {
         singer: "Natalie Imbruglia",
         song: "Torn",
-        image: "../images/Natalie Imbruglia",
+        image: "assets/images/Natalie_Imbruglia.png",
     },
     {
         singer: "Spice Girls",
         song: "Wannabe",
-        image: "../images/Spice Girls",
+        image: "assets/images/Spice_Girls.png",
     }
    
 ]
@@ -70,12 +70,23 @@ var wins;
 var losses;
 var underscores;
 var guessedLetters;
+var individualMainInfo;
+var randomSong;
+var songImage;
+
+var songName;
+var singerName;
+var connector;
+var instruction;
+
+var pauseWin;
 
 //Events
 window.onload = function () {
     
     wins = 0;
     losses = 0;
+    pauseWin = false;
 
     reset();
 
@@ -83,7 +94,17 @@ window.onload = function () {
 
 document.onkeyup = function (event) {
     var userGuess = event.key;
+
+    if(pauseWin){
+        reset();
+        pauseWin = false;
+        instruction = "";
+        document.getElementById("instructionHTML").innerHTML = instruction;
+        return;
+    }
     
+
+
     if (userGuess.match(/[a-z]/i)) {
 
         if (guessedLetters.indexOf(userGuess) === -1) {
@@ -98,8 +119,26 @@ document.onkeyup = function (event) {
         }
 
         if (underscores.toString() === letters.toString()) {
+            songImage = individualMainInfo.image;
+            document.getElementById("imageHTML").setAttribute("src", songImage);
+
+            songName = individualMainInfo.song;
+            document.getElementById("songNameHTML").innerHTML = songName;
+
+            singerName = individualMainInfo.singer;
+            document.getElementById("singerHTML").innerHTML = singerName;
+
+            connector = "by";
+            document.getElementById("connectorHTML").innerHTML = connector;
+
+            instruction = "Press Any Key to Continue";
+            document.getElementById("instructionHTML").innerHTML = instruction;
+           
             wins++;
-            reset();
+            
+            pauseWin = true;
+
+            updateFields();
         } else if (guessesRemaining === 0) {
             losses++;
             reset();
@@ -115,11 +154,14 @@ function updateFields() {
     document.getElementById("lossesHTML").innerHTML = losses;
     document.getElementById("guessesRemainingHTML").innerHTML = guessesRemaining;
     document.getElementById("guessedLettersHTML").innerHTML = guessedLetters;
+    
 }
 
 function reset () {
     // Display underscores according to the randomly chosen word
-    var randomSong = mainInfo[Math.floor(Math.random() * 12)].song;
+    individualMainInfo = mainInfo[Math.floor(Math.random() * 12)];
+    randomSong = individualMainInfo.song;
+    
     letters = randomSong.split("");
     
     underscores = letters.slice();

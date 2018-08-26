@@ -1,4 +1,3 @@
-
 var mainInfo = [
     {
         singer: "Mariah Carey",
@@ -78,6 +77,7 @@ var songName;
 var singerName;
 var connector;
 var instruction;
+var directionsText;
 
 var pauseWin;
 
@@ -94,11 +94,14 @@ window.onload = function () {
 
 document.onkeyup = function (event) {
     var userGuess = event.key;
+    directionsText = document.getElementById("directions-text");
+    directionsText.textContent = "";
 
     if(pauseWin){
         reset();
         pauseWin = false;
         instruction = "";
+
         document.getElementById("instructionHTML").innerHTML = instruction;
         return;
     }

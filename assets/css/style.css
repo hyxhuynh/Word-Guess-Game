@@ -103,7 +103,7 @@ p { color: #b48608;
 }
 
 @media screen and (max-width: 640px) {
-    img, .columnd, row, h1, h2 {
+    img, .column, h1, h2 {
         width: 100%;
     }
 }

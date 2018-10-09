@@ -31,9 +31,9 @@ In this game, the word choices are songs from the 90s era. Player first clicks a
 <a name="Installation"></a>
 ## Installation
 
-Download the files to your computer from https://github.com/hyxhuynh/word-guess-game and open index.html using your browser (eg. Google Chrome)
+Download the files to your computer from https://github.com/hyxhuynh/Word-Guess-Game and open index.html using your browser (eg. Google Chrome)
 
-Or visit: https://hyxhuynh.github.io/word-guess-game/
+Or visit: https://hyxhuynh.github.io/Word-Guess-Game/
 
 <a name="App Display"></a>
 ## Game Display

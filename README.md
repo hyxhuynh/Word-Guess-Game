@@ -35,8 +35,8 @@ Download the files to your computer from https://github.com/hyxhuynh/Word-Guess-
 
 Or visit: https://hyxhuynh.github.io/Word-Guess-Game/
 
-<a name="App Display"></a>
-## Game Display
+<a name="display"></a>
+## App Display
 
 ![](assets/images/default_screen.png)
 

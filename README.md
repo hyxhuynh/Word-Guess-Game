@@ -1,5 +1,4 @@
 # Word-Guess-Game
-JavaScript Assignment
 
 ## Table of Contents 
 1. [Overview](#overview)
